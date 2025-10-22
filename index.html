@@ -8,8 +8,9 @@
     margin: 0;
     background: url('https://cryptobo.neocities.org/3574a57d4e48a6ce29b4241adc8fd2f4.jpg') no-repeat center center fixed;
     background-size: cover;
+    font-family: Arial, sans-serif;
     overflow: hidden;
-    cursor: pointer;
+    cursor: pointer; /* makes it clickable */
   }
 
   .container {
@@ -25,19 +26,21 @@
 </style>
 </head>
 <body>
-  <div class="container"></div>
+  <div class="container" id="door"></div>
 
-  <!-- SOUND -->
-  <audio id="clickSound" src="https://files.catbox.moe/28z8sr.mp3" preload="auto"></audio>
+  <!-- 🔊 The audio -->
+  <audio id="clickSound" preload="auto">
+    <source src="https://files.catbox.moe/28z8sr.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
-    // play sound when clicking anywhere
-    document.body.addEventListener("click", () => {
-      const sound = document.getElementById("clickSound");
-      sound.currentTime = 0;
-      sound.volume = 1.0;
-      sound.play().catch(err => console.log("Autoplay blocked:", err));
+    const sound = document.getElementById('clickSound');
+    document.body.addEventListener('click', () => {
+      // Try to play sound only after user gesture
+      sound.volume = 1;
+      sound.play().catch(err => console.log("Playback blocked:", err));
     });
   </script>
 </body>
 </html>
+
