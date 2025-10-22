@@ -1,1 +1,43 @@
-<div class="bubble" style="color:#ff1493"> <span class="username">user:</span> ok </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>chat it up</title>
+<style>
+  body {
+    margin: 0;
+    background: url('https://cryptobo.neocities.org/3574a57d4e48a6ce29b4241adc8fd2f4.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('https://cryptobo.neocities.org/text.jpg') no-repeat center center;
+    background-size: contain;
+    width: 600px;
+    height: 450px;
+  }
+</style>
+</head>
+<body>
+  <div class="container"></div>
+
+  <!-- SOUND -->
+  <audio id="clickSound" src="https://files.catbox.moe/28z8sr.mp3" preload="auto"></audio>
+
+  <script>
+    // play sound when clicking anywhere
+    document.body.addEventListener("click", () => {
+      const sound = document.getElementById("clickSound");
+      sound.currentTime = 0;
+      sound.volume = 1.0;
+      sound.play().catch(err => console.log("Autoplay blocked:", err));
+    });
+  </script>
+</body>
+</html>
